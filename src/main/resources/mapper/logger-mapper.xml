@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "com.mrtcn.bankingSystem.Repository.LoggerRepository">
+
+	<insert id="insertLog" parameterType="Log" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO logs(id, account_id, process, amount, transfered_account_id, type) VALUES(#{id}, #{accountId}, #{process}, #{amount}, #{transferedAccountId}, #{type})
+	</insert>
+	
+	<select id="selectLogWithId" resultType="Log" parameterType="long">
+		SELECT * FROM logs WHERE account_id = #{id}
+	</select>
+	
+</mapper>
